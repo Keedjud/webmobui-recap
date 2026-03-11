@@ -25,6 +25,9 @@ const router = () => {
   else if (hashs[0] === '#artists')
     main.innerHTML = `<page-artist-songs artist-id="${hashs[1]}" />`
 
+  else if (hashs[0] === '#search')
+    main.innerHTML = `<page-search-songs query="${decodeURIComponent(hashes[1])}" />`
+
   // autres routes
 }
 

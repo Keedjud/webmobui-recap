@@ -1,8 +1,7 @@
-import { getSongs } from '../api.js'
 import { playSong } from '../player.js'
 
-customElements.define("page-artist-songs", class extends HTMLElement {
-  static observedAttributes = ['artist-id']
+export class PageSongs extends HTMLElement {
+  static observedAttributes = []
 
   connectedCallback() {
     this.render()
@@ -13,13 +12,11 @@ customElements.define("page-artist-songs", class extends HTMLElement {
   }
 
   render() {
-    const artistId = this.getAttribute('artist-id')
-
-    getSongs(artistId)
+    getSongsData()
       .then((songs) => {
         this.innerHTML = `
         <h4>
-          Artistes > ${songs[0].artist.name}
+          ${getTitle()}
         </h4>
 
         <div class="list">
@@ -35,4 +32,13 @@ customElements.define("page-artist-songs", class extends HTMLElement {
         })
       })
   }
-})
+
+  getSongsData() {
+    return []
+  }
+
+  getTitle() {
+    return "title"
+  }
+
+}
