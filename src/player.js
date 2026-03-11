@@ -10,8 +10,6 @@ const playSong = (song, songs) => {
     currentSongList = songs
   }
 
-  console.log(currentSong, currentSongList)
-
   // On donne la source de l'audio au player et on lance la lecture
   audioPlayer.src = currentSong.audio_url
   audioPlayer.play()  
