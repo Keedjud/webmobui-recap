@@ -1,4 +1,4 @@
-
+import { getArtists } from "../api.js"
 customElements.define("page-artists", class extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -8,6 +8,15 @@ customElements.define("page-artists", class extends HTMLElement {
       </artist-list>
     `
     const artistList = this.querySelector('artist-list')
+
+    getArtists().then((artists) => {
+      console.log(artists)
+      artists.forEach(artist => {
+        artistList.innerHTML += `
+          <artist-cover id="${artist.id}" name="${artist.name}" cover="${artist.image_url}"/>
+        `
+      });
+    })
 
     // Itérer le tableau d'artistes reçus et créer les éléments correspondants
     

@@ -16,6 +16,12 @@ const router = () => {
   if (hashs[0] == '#home')
     main.innerHTML = '<page-home />'
 
+  else if (hashs[0] == '#player')
+    main.innerHTML = '<page-player />'
+
+  else if (hashs[0] == '#artists')
+    main.innerHTML = '<page-artists />'
+
   // autres routes
 }
 
