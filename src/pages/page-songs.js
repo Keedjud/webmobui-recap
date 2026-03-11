@@ -1,7 +1,8 @@
 import { getSongs } from '../api.js'
+import { playSong } from '../player.js'
 
 customElements.define("page-artist-songs", class extends HTMLElement {
-  static observedAttributes = []
+  static observedAttributes = ['artist-id']
 
   connectedCallback() {
     this.render()
@@ -15,8 +16,8 @@ customElements.define("page-artist-songs", class extends HTMLElement {
     const artistId = this.getAttribute('artist-id')
 
     getSongs(artistId)
-    .then((songs) => {
-      this.innerHTML = `
+      .then((songs) => {
+        this.innerHTML = `
         <h4>
           Artistes > ${songs[0].artist.name}
         </h4>
@@ -24,14 +25,14 @@ customElements.define("page-artist-songs", class extends HTMLElement {
         <div class="list">
         </div>
       `
-      const songList = this.querySelector('.list')
-      // Itérer le tableau de chansons reçu et créer les éléments correspondants
-      songs.forEach((song) => {
-        const songItem = document.createElement('song-item')
-        songItem.setAttribute('title', song.title)
-        songItem.addEventListener()
-        songList.append(songItem)
+        const songList = this.querySelector('.list')
+        // Itérer le tableau de chansons reçu et créer les éléments correspondants
+        songs.forEach((song) => {
+          const songItem = document.createElement('song-item')
+          songItem.setAttribute('title', song.title)
+          songItem.addEventListener('playsong', playSong(song, songs))
+          songList.append(songItem)
+        })
       })
-    })
   }
 })

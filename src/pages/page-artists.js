@@ -10,15 +10,11 @@ customElements.define("page-artists", class extends HTMLElement {
     const artistList = this.querySelector('artist-list')
 
     getArtists().then((artists) => {
-      console.log(artists)
       artists.forEach(artist => {
         artistList.innerHTML += `
           <artist-cover id="${artist.id}" name="${artist.name}" cover="${artist.image_url}"/>
         `
       });
     })
-
-    // Itérer le tableau d'artistes reçus et créer les éléments correspondants
-    
   }
 })

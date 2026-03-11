@@ -1,5 +1,5 @@
 customElements.define('song-item', class extends HTMLElement {
-  static observedAttributes = []
+  static observedAttributes = ['title']
 
   connectedCallback() {
     this.render()
@@ -24,5 +24,7 @@ customElements.define('song-item', class extends HTMLElement {
       </div>`
 
     // événements customs
+    const playEvent = new CustomEvent('playsong')
+    this.querySelector('.play-button').addEventListener('click', this.dispatchEvent(playEvent))
   }
 })

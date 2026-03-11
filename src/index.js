@@ -13,14 +13,17 @@ const router = () => {
   const main = document.querySelector('main')
   const hashs = (window.location.hash || '#home').split('/')
 
-  if (hashs[0] == '#home')
+  if (hashs[0] === '#home')
     main.innerHTML = '<page-home />'
 
-  else if (hashs[0] == '#player')
+  else if (hashs[0] === '#player')
     main.innerHTML = '<page-player />'
 
-  else if (hashs[0] == '#artists')
+  else if (hashs[0] === '#artists' && hashs.length === 1)
     main.innerHTML = '<page-artists />'
+
+  else if (hashs[0] === '#artists')
+    main.innerHTML = `<page-artist-songs artist-id="${hashs[1]}" />`
 
   // autres routes
 }
