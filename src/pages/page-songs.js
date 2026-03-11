@@ -30,7 +30,7 @@ customElements.define("page-artist-songs", class extends HTMLElement {
         songs.forEach((song) => {
           const songItem = document.createElement('song-item')
           songItem.setAttribute('title', song.title)
-          songItem.addEventListener('playsong', playSong(song, songs))
+          songItem.addEventListener('playsong', (song, songs) => playSong(song, songs))
           songList.append(songItem)
         })
       })

@@ -25,6 +25,6 @@ customElements.define('song-item', class extends HTMLElement {
 
     // événements customs
     const playEvent = new CustomEvent('playsong')
-    this.querySelector('.play-button').addEventListener('click', this.dispatchEvent(playEvent))
+    this.querySelector('.play-button').addEventListener('click', () => this.dispatchEvent(playEvent))
   }
 })
