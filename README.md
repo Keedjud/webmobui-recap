@@ -3,7 +3,7 @@ Structure de départ pour le recap du projet Spotlified du cours [WebMobUI](http
 ## Objectif
 L'objectif est d'obtenir une application web fonctionnelle déployée sur Netlify similaire à celle-ci : https://calimomilo-spotlified.netlify.app/
 
-L'état final de l'exercice devrait ressembler au repo suivant : https://github.com/calimomilo/webmobui-projet
+Le résultat obtenu lors du recap se trouve sur la branche `solution` et peut être atteint à l'adresse suivante : https://calimomilo-spotlified-recap.app/
 ## Programme
 ### Initialisation
 forker et cloner ce repo
@@ -47,6 +47,7 @@ eventListener `hashchange` → appelle `router`
 - `page-artist-songs` et `page-search-songs` héritent de cette classe
 - création des fonctions `getTitle()` et `getSongsData()` dans les pages spécifiques
 - `page-artist-songs` → besoin d'accéder au résultat de la requête dans `getTitle()`, mais les éléments ne sont plus liés, nécessaire de passer par un attribut de la classe
+- !! ajouter les imports des nouvelles pages dans `index.js`!!
 ### Favoris
 - `local-storage.js` → fonctions pour interagir avec localStorage ; gérer le clic + affichage
 - `page-favorite-songs.js` → hérite aussi  de PageSongs
